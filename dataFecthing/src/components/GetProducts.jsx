@@ -38,7 +38,11 @@ function GetProducts() {
               <h2 className="product-title">{product.title}</h2>
               <p className="product-desc">{product.description}</p>
               <div className="product-footer">
-                <span className="product-price">${product.price}</span>
+                <div className="product-meta">
+                  <span className="product-price">${product.price.toFixed(2)}</span>
+                  <span className="product-rating">★ {product.rating.rate}</span>
+                  <span className="product-reviews">({product.rating.count})</span>
+                </div>
                 <button className="buy-btn">Buy</button>
               </div>
             </div>

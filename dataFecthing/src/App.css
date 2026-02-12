@@ -1,0 +1,28 @@
+:root{
+  --bg:#f1f5f9;
+  --card-bg:#ffffff;
+  --muted:#64748b;
+  --accent:#2563eb;
+}
+
+html,body,#root{height:100%}
+body{margin:0;background:var(--bg);font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial}
+
+.app-header{
+  background:linear-gradient(90deg, rgba(37,99,235,0.08), rgba(96,165,250,0.04));
+  border-bottom:1px solid rgba(2,6,23,0.04);
+}
+.header-inner{max-width:1100px;margin:0 auto;padding:14px 16px;display:flex;align-items:center;justify-content:space-between}
+.site-title{margin:0;font-size:1.125rem;color:#0b1220}
+.site-nav{display:flex;gap:12px}
+.nav-link{color:var(--accent);text-decoration:none;font-weight:600}
+
+.app-main{min-height:60vh;padding:20px 16px}
+
+.app-footer{border-top:1px solid rgba(2,6,23,0.04);background:transparent}
+.footer-inner{max-width:1100px;margin:0 auto;padding:16px;color:var(--muted);text-align:center;font-size:0.95rem}
+
+@media (max-width:480px){
+  .header-inner{padding:12px}
+  .site-nav{display:none}
+}
