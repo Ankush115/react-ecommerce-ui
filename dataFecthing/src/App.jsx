@@ -1,6 +1,7 @@
 
 import { useState } from 'react'
 import './App.css'
+import Home from './components/Home'
 import GetProducts from './components/GetProducts'
 import Login from './components/Login'
 import Cart from './components/Cart'
@@ -10,20 +11,20 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [currentUser, setCurrentUser] = useState('')
   const [cartItems, setCartItems] = useState([])
-  const [currentView, setCurrentView] = useState('products') // 'products', 'cart', 'checkout', 'confirmation'
+  const [currentView, setCurrentView] = useState('home') // 'home', 'products', 'cart', 'checkout', 'confirmation'
   const [lastOrder, setLastOrder] = useState(null)
 
   const handleLogin = (username) => {
     setCurrentUser(username)
     setIsLoggedIn(true)
-    setCurrentView('products')
+    setCurrentView('home')
   }
 
   const handleLogout = () => {
     setCurrentUser('')
     setIsLoggedIn(false)
     setCartItems([])
-    setCurrentView('products')
+    setCurrentView('home')
   }
 
   const handleAddToCart = (product) => {
@@ -70,7 +71,7 @@ function App() {
 
   const handleNewOrder = () => {
     setCartItems([])
-    setCurrentView('products')
+    setCurrentView('home')
   }
 
   if (!isLoggedIn) {
@@ -83,19 +84,23 @@ function App() {
     <div className="app-root">
       <header className="app-header">
         <div className="header-inner">
-          <h1 className="site-title">Simple Store</h1>
+          <h1 
+            className="site-title" 
+            onClick={() => setCurrentView('home')}
+            style={{ cursor: 'pointer' }}
+          >
+            Simple Store
+          </h1>
           <nav className="site-nav">
             <button 
-              className="nav-link"
-              onClick={() => setCurrentView('products')}
-              style={{ background: 'none', border: 'none', cursor: 'pointer' }}
+              className={`nav-link ${currentView === 'home' ? 'active' : ''}`}
+              onClick={() => setCurrentView('home')}
             >
               Home
             </button>
             <button 
-              className="nav-link"
+              className={`nav-link ${currentView === 'products' ? 'active' : ''}`}
               onClick={() => setCurrentView('products')}
-              style={{ background: 'none', border: 'none', cursor: 'pointer' }}
             >
               Products
             </button>
@@ -117,6 +122,14 @@ function App() {
       </header>
 
       <main className="app-main">
+        {currentView === 'home' && (
+          <Home 
+            userName={currentUser}
+            onShopNow={() => setCurrentView('products')}
+            cartCount={cartCount}
+          />
+        )}
+
         {currentView === 'products' && (
           <GetProducts onAddToCart={handleAddToCart} />
         )}
