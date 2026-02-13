@@ -1,0 +1,75 @@
+import React, { useState } from "react";
+import "./Login.css";
+
+function Login({ onLogin }) {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setError("");
+
+    // Basic validation
+    if (!username || !password) {
+      setError("Please fill in all fields");
+      return;
+    }
+
+    if (password.length < 4) {
+      setError("Password must be at least 4 characters");
+      return;
+    }
+
+    // Call the onLogin callback with username
+    onLogin(username);
+    setUsername("");
+    setPassword("");
+  };
+
+  return (
+    <div className="login-container">
+      <div className="login-box">
+        <h2 className="login-title">Login to Simple Store</h2>
+        <form className="login-form" onSubmit={handleSubmit}>
+          <div className="form-group">
+            <label htmlFor="username" className="form-label">
+              Username
+            </label>
+            <input
+              type="text"
+              id="username"
+              className="form-input"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              placeholder="Enter your username"
+            />
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="password" className="form-label">
+              Password
+            </label>
+            <input
+              type="password"
+              id="password"
+              className="form-input"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Enter your password"
+            />
+          </div>
+
+          {error && <p className="error-message">{error}</p>}
+
+          <button type="submit" className="login-btn">
+            Login
+          </button>
+        </form>
+        <p className="login-tip">Demo: Use any username and password (min 4 chars)</p>
+      </div>
+    </div>
+  );
+}
+
+export default Login;

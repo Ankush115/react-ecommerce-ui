@@ -26,3 +26,8 @@ body{margin:0;background:var(--bg);font-family:Inter,system-ui,Segoe UI,Roboto,H
   .header-inner{padding:12px}
   .site-nav{display:none}
 }
+
+.user-section{display:flex;align-items:center;gap:15px}
+.user-name{font-weight:500;color:#0b1220;font-size:0.9rem}
+.logout-btn{padding:8px 16px;background:#e74c3c;color:white;border:none;border-radius:6px;cursor:pointer;font-weight:600;font-size:0.9rem;transition:background 0.3s ease}
+.logout-btn:hover{background:#c0392b}
