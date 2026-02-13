@@ -31,3 +31,46 @@ body{margin:0;background:var(--bg);font-family:Inter,system-ui,Segoe UI,Roboto,H
 .user-name{font-weight:500;color:#0b1220;font-size:0.9rem}
 .logout-btn{padding:8px 16px;background:#e74c3c;color:white;border:none;border-radius:6px;cursor:pointer;font-weight:600;font-size:0.9rem;transition:background 0.3s ease}
 .logout-btn:hover{background:#c0392b}
+
+.cart-icon-btn{padding:8px 16px;background:#2563eb;color:white;border:none;border-radius:6px;cursor:pointer;font-weight:600;font-size:0.9rem;transition:background 0.3s ease}
+.cart-icon-btn:hover{background:#1e40af}
+
+.cart-view-container{max-width:1100px;margin:0 auto}
+.back-to-products{padding:10px 20px;background:#e0e0e0;color:#333;border:none;border-radius:6px;cursor:pointer;font-weight:600;margin-bottom:20px;transition:background 0.3s ease}
+.back-to-products:hover{background:#d0d0d0}
+
+.confirmation-container{display:flex;justify-content:center;align-items:center;min-height:50vh;padding:20px}
+
+.confirmation-card{background:white;border-radius:12px;padding:40px;max-width:600px;box-shadow:0 4px 12px rgba(0,0,0,0.1);text-align:center}
+
+.confirmation-icon{font-size:4rem;color:#27ae60;margin-bottom:20px}
+
+.confirmation-card h2{margin:0 0 10px 0;font-size:1.8rem;color:#0b1220}
+
+.confirmation-message{color:#666;font-size:1.1rem;margin:0 0 30px 0}
+
+.order-details{background:#f9f9f9;border-radius:8px;padding:20px;margin-bottom:20px;text-align:left}
+
+.detail-row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid #e0e0e0}
+
+.detail-row:last-child{border-bottom:none}
+
+.detail-row .label{font-weight:600;color:#555}
+
+.detail-row .value{color:#0b1220;word-break:break-word}
+
+.items-summary{background:#f9f9f9;border-radius:8px;padding:20px;margin-bottom:20px;text-align:left}
+
+.items-summary h3{margin:0 0 15px 0;color:#0b1220}
+
+.item-row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #e0e0e0;font-size:0.9rem}
+
+.item-row:last-child{border-bottom:none}
+
+.total-section{display:flex;justify-content:space-between;align-items:center;padding:20px 0;border-top:2px solid #e0e0e0;font-size:1.1rem;font-weight:600}
+
+.total-amount{color:#27ae60;font-size:1.3rem}
+
+.continue-shopping-btn{padding:12px 30px;background:linear-gradient(135deg,#27ae60 0%,#229954 100%);color:white;border:none;border-radius:8px;cursor:pointer;font-weight:600;font-size:1rem;transition:transform 0.2s ease,box-shadow 0.2s ease;margin-top:20px}
+
+.continue-shopping-btn:hover{transform:translateY(-2px);box-shadow:0 5px 20px rgba(39,174,96,0.4)}

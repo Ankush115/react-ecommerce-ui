@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./GetProducts.css";
 
-function GetProducts() {
+function GetProducts({ onAddToCart }) {
   const [products, setProducts] = useState([]);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
@@ -21,6 +21,10 @@ function GetProducts() {
   useEffect(() => {
     getProducts();
   }, []);
+
+  const handleAddToCart = (product) => {
+    onAddToCart(product);
+  };
 
   if (loading) return <p className="loading">Loading...</p>;
   if (error) return <p className="error">{error}</p>;
@@ -43,7 +47,12 @@ function GetProducts() {
                   <span className="product-rating">★ {product.rating.rate}</span>
                   <span className="product-reviews">({product.rating.count})</span>
                 </div>
-                <button className="buy-btn">Buy</button>
+                <button 
+                  className="buy-btn" 
+                  onClick={() => handleAddToCart(product)}
+                >
+                  Add to Cart
+                </button>
               </div>
             </div>
           </article>
