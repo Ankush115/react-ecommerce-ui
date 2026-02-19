@@ -11,6 +11,8 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [currentUser, setCurrentUser] = useState('')
   const [cartItems, setCartItems] = useState([])
+  // Return only alphabet characters from a username
+  const onlyAlpha = (s) => (s || '').replace(/[^A-Za-z]/g, '')
   const [currentView, setCurrentView] = useState('home') // 'home', 'products', 'cart', 'checkout', 'confirmation'
   const [lastOrder, setLastOrder] = useState(null)
 
@@ -115,8 +117,8 @@ function App() {
                 🛒 Cart ({cartCount})
               </button>
             )}
-            <span className="user-name">Welcome, {currentUser}</span>
-            <button className="logout-btn" onClick={handleLogout}>Logout</button>
+              <span className="user-name">Welcome, {onlyAlpha(currentUser)}</span>
+              <button className="logout-btn" onClick={handleLogout}>Logout</button>
           </div>
         </div>
       </header>
@@ -124,7 +126,7 @@ function App() {
       <main className="app-main">
         {currentView === 'home' && (
           <Home 
-            userName={currentUser}
+              userName={onlyAlpha(currentUser)}
             onShopNow={() => setCurrentView('products')}
             cartCount={cartCount}
           />
