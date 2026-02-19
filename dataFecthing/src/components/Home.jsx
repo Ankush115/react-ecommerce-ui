@@ -37,7 +37,7 @@ function Home({ userName, onShopNow, cartCount }) {
       {/* Hero Section */}
       <section className="hero-section">
         <div className="hero-content">
-          <h1 className="hero-title">Welcome to Simple Store, {userName}! 👋</h1>
+          <h1 className="hero-title">Welcome to Simple Store, Ankush! 👋</h1>
           <p className="hero-subtitle">
             Discover our amazing collection of quality products at unbeatable prices
           </p>

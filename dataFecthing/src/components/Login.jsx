@@ -1,6 +1,12 @@
 import React, { useState } from "react";
 import "./Login.css";
 
+// Demo credentials
+const DEMO_USER = {
+  username: "Ankush@117",
+  password: "Ankush@0121",
+};
+
 function Login({ onLogin }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -16,12 +22,13 @@ function Login({ onLogin }) {
       return;
     }
 
-    if (password.length < 4) {
-      setError("Password must be at least 4 characters");
+    // Validate against demo credentials
+    if (username !== DEMO_USER.username || password !== DEMO_USER.password) {
+      setError("Invalid username or password");
       return;
     }
 
-    // Call the onLogin callback with username
+    // Successful login
     onLogin(username);
     setUsername("");
     setPassword("");
@@ -66,7 +73,7 @@ function Login({ onLogin }) {
             Login
           </button>
         </form>
-        <p className="login-tip">Demo: Use any username and password (min 4 chars)</p>
+        <p className="login-tip">Demo credentials — username: Ankush@117 password: Ankush@0121</p>
       </div>
     </div>
   );
